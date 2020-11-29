@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view class="container">
+
+<view class="lists">
+  <view class="top">
+  <view class='topbar'>
+      <view class='tab {{idx == index? "type-item-on" : ""}}' data-index='{{index}}' catchtap='tab' wx:for='{{tab}}' wx:key='key'>{{item.title}}</view>
+  </view>
+</view>
+<view class='content'>
+  <view wx:if='{{idx == 0}}' class='tabs' data-id='0' bindtouchmove="handletouchmove">
+  <view wx:for='{{goout}}' class="field">
+  <view class="info">
+    <view class="time">{{item.time}}</view>
+    <view class="pos">{{item.pos_s}}->{{item.pos_e}}</view>
+     </view>
+     <view class="num">3/4</view>
+     <view class="choose" bindtap="choose">加入</view>
+  </view>
+</view>
+<view wx:if='{{idx == 1}}' class='tabs' data-id='1' bindtouchmove="handletouchmove">
+<view wx:for='{{goschool}}' class="field">
+
+</view>
+
+</view>
+<view wx:if='{{idx == 2}}' class='tabs' data-id='2' bindtouchmove="handletouchmove">
+<view wx:for='{{random}}' class="field">
+
+</view>
+</view>
+
+</view>
+</view>
+
+ <view bindtap="setting" class="float">
+<img class="icon" src="../../images/my.png"></img>
+ </view>
+
+<view class="bot" bindtap="newshare">
+<!--发起拼车-->
+<view class="tianjia">+</view>
+</view>
+ 
+
+
+</view>
