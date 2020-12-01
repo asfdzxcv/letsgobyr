@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/users/users",
     "pages/userConsole/userConsole",
+    "pages/map/map",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
@@ -14,7 +15,9 @@
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
     "pages/im/room/room",
-    "pages/map/map"
+    "pages/launch/launch",
+    "pages/detail/detail",
+    "pages/chat/chat"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -23,7 +26,11 @@
     "navigationBarTitleText": "出发吧byr",
     "navigationBarTextStyle": "black"
   },
-
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于拼车发起位置" 
+    }
+  },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }

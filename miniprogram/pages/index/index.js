@@ -1,38 +1,24 @@
+var Database=require('../../utils/database.js')
 Page({
   
   /**
   * 页面的初始数据
   */
+
   data: {
-    goout:[
-      {time:"2020.11.29 13:30",
-      pos_s:"沙河校区",
-      pos_e:"昌平区医院"
-    },
-    {time:"2020.11.29 13:30",
-    pos_s:"沙河校区",
-    pos_e:"昌平区医院"
-  },
-  {time:"2020.11.29 13:30",
-  pos_s:"沙河校区",
-  pos_e:"昌平区医院"
-}
-    ],
-    goschool:[1,2,3,4,5],
-    random:[1,2,3,4,5],
+    
+    ground:[],
   tab: [{
-   title: '离校',
+   title: '拼车广场',
    id: 0
   },
   {
-   title: '返校',
+   title: '我的拼车',
    id: 1
   },
-  {
-   title: '其他',
-   id: 3
-  },
-   
+   {title:"个人中心",
+id:2
+}
   ],
   idx: 0, //默认选中第一项
    
@@ -43,9 +29,42 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-   
+    var that=this;
+    function set(data){
+      console.log("回调");
+      that.setData({
+        ground:data
+      })
+      console.log(that.data.ground)
+    }
+   Database.ShareInfoGet(0,set);
+   wx.cloud.callFunction({
+    name: 'wxlogin',
+    complete: res => {
+      console.log('callFunction test result: ', res)
+    }
+  })
+  },
+  onShow(){
+    var that=this;
+    function set(data){
+      console.log("回调");
+      that.setData({
+        ground:data
+      })
+      console.log(that.data.ground)
+    }
+   Database.ShareInfoGet(0,set);
   },
   // tab
+  todetail:function(e){
+    console.log(e)
+    console.log(e.currentTarget.dataset.id)
+    var url='../detail/detail?id='+e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: url,
+    })
+  },
   tab(e) {
   let that = this;
   let index = e.currentTarget.dataset.index;

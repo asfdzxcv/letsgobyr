@@ -1,0 +1,12 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+<view class="content">
+<view class="tex">
+<view class="pos">起止地点: {{detail.pos_s}}->{{detail.pos_e}}</view>
+<view class="time">出发时间: {{detail.time}}</view>
+<view class="gender">性别要求: {{detail.gender}}</view>
+<view class="other">其他要求: {{detail.other}}</view>
+</view>
+<button class="confirm" bindtap="confirm" >确认拼车</button>
+</view>
+</view>

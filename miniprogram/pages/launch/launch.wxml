@@ -1,0 +1,18 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+<view class="content">
+<view class="tex">
+<view class="pos" class="massage"><text>从</text><block class="ipt"><input bindinput="startinput" class="field"/></block></view>
+<view class="pos-d" class="massage"><text>到</text><input bindinput="endinput" class="field" /></view>
+<view class="time" class="massage"><text>出发时间:</text><input bindinput="timeinput" class="field"/></view>
+<view class="time" class="massage"><text>人数上限:</text><input bindinput="numlim" class="field"/></view>
+<view class="gender" class="massage"><text>性别要求:</text><picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker" class="field">
+      {{array[gender]}}
+    </view>
+  </picker></view>
+<view class="other" class="massage"><text>其他要求: </text><input bindinput="otherinput" class="field"/></view>
+</view>
+<button class="confirm" bindtap="confirm">发起拼车</button>
+</view>
+</view>
